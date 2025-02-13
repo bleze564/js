@@ -1,26 +1,15 @@
-// Створіть об'єкт "book" з властивостями "title", "author", "year" та "genre". Додайте до об'єкту метод, який дозволить змінювати значення властивостей.
+'use strict'
 
+const players = [
+    { id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, online: false },
+    { id: 'player-2', name: 'Poly', timePlayed: 470, points: 92, online: true },
+    { id: 'player-3', name: 'Kiwi', timePlayed: 230, points: 48, online: true },
+    { id: 'player-4', name: 'Ajax', timePlayed: 150, points: 71, online: false },
+    { id: 'player-5', name: 'Chelsy', timePlayed: 280, points: 48, online: true },
+  ];
 
-
-const book ={
-    title:"harry poter",
-    author:"Роулінг Джоан",
-    year:1990,
-    genre:"фантастика",
-    update(newTitle,newAuthor,newYear,newGenre){
-        if(newTitle) this.title = newTitle;
-        if(newAuthor) this.author = newAuthor;
-        if(newYear) this.year = newYear;
-        if(newGenre) this.genre = newGenre;
-
-    }
-
-}
-console.log(book);
-// book.update(
-//     'буквар',
-//     'Тарас',
-//     2001,
-//     'Навчальна література'
-// )
-// console.log(book)
+const playername='Mango'
+const findPlayerName = players.find(function(player){
+    return player.name ===playerName
+})
+console.log(findPlayerName)
