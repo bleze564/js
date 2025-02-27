@@ -1,2 +1,3 @@
-const listEl =document.querySelectorAll("li")
+const listEl =document.querySelector("li")
 console.log(listEl)
+console.log([...listEl])
