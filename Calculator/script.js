@@ -32,13 +32,8 @@ function setMathAction(event){
   mathAction = el.id;
   console.log(mathAction)
 }
-// console.log(mathActionButtons)
-// console.log([...mathActionButtons])
-1. повесить вызов функции на кнопку result 
-2. написать функцию mathresult 
-2.1 изпользывать в функции mathresult как аргументы firstNum,secondNum,mathAction. Написать действие с помощью ifElse 
+
 if (mathAction === "plus"){
   result = firstNum + secondNum
 }
-else if ...
-3. написать функцию которая будет сетить значения в поле результата (innerHTML или el.value)
+// else if
