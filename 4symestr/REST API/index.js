@@ -1,5 +1,8 @@
 const formEl = document.querySelector("form");
 const markupDiv =document.querySelector('.container')
+
+const BASE_URL ="https://newsapi.org/v2/everything"
+const apiKey ="4cb0d0900a824cada0e90e272a031922"
 formEl.addEventListener("submit", (ev) => {
   ev.preventDefault();
   searchArticlesByName(ev.currentTarget.elements.query.value).then( (responds) => {
@@ -8,9 +11,9 @@ formEl.addEventListener("submit", (ev) => {
   })
     formEl.reset();
 });
-function searchArticlesByName(news) {
+function searchArticlesByName(news) { 
   return fetch(
-    `https://newsapi.org/v2/everything?q=${news}&apiKey=4cb0d0900a824cada0e90e272a031922`
+    `${BASE_URL}?q=${news}&apiKey=${apiKey}&pageSize=10&page=${pages}`
   ).then((result) => result.json());
 }
 function createArticleMarkup (article) {
