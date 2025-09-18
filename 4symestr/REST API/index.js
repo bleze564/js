@@ -1,21 +1,38 @@
 const formEl = document.querySelector("form");
 const markupDiv =document.querySelector('.container')
+const showMore =document.querySelector('.show')
+
 
 const BASE_URL ="https://newsapi.org/v2/everything"
-const apiKey ="4cb0d0900a824cada0e90e272a031922"
+const apiKey ="4cb0d0900a824cada0e90e272a031922" 
+let searchQuery ;
+let pages = 1 
+
+
 formEl.addEventListener("submit", (ev) => {
   ev.preventDefault();
-  searchArticlesByName(ev.currentTarget.elements.query.value).then( (responds) => {
+  searchQuery = ev.currentTarget.elements.query.value
+  searchArticlesByName(searchQuery).then( (responds) => {
    let markup =responds.articles.map(createArticleMarkup)
    markupDiv.innerHTML = markup
+  }).catch(() => {
+    document.body.innerHTML ='<h1>error</h1>'
   })
     formEl.reset();
+    
 });
+
+
+
+
+
 function searchArticlesByName(news) { 
   return fetch(
-    `${BASE_URL}?q=${news}&apiKey=${apiKey}&pageSize=10&page=${pages}`
+    `${BASE_URL}?q=${news}&apiKey=${apiKey}&pageSize=9&page=${pages}`
   ).then((result) => result.json());
 }
+
+
 function createArticleMarkup (article) {
   return `
        <article>
@@ -25,3 +42,10 @@ function createArticleMarkup (article) {
      </article>
 `;
 }
+showMore.addEventListener("click", () => {
+  pages += 1
+  searchArticlesByName(searchQuery).then( (responds) => {
+   let markup =responds.articles.map(createArticleMarkup)
+   markupDiv.insertAdjacentHTML('beforeend', markup);
+  })
+})
