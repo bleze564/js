@@ -5,7 +5,7 @@ const showMore =document.querySelector('.show')
 
 const BASE_URL ="https://newsapi.org/v2/everything"
 const apiKey ="4cb0d0900a824cada0e90e272a031922" 
-let searchQuery ;
+let searchQuery 
 let pages = 1 
 
 
